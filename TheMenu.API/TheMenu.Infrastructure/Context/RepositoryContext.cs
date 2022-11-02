@@ -13,6 +13,6 @@ namespace TheMenu.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new ProductConfig());
         }
 
-        public DbSet<Product>? Products { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

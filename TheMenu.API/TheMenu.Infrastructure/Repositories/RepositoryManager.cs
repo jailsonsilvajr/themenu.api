@@ -3,7 +3,7 @@ using TheMenu.Infrastructure.Context;
 
 namespace TheMenu.Infrastructure.Repositories
 {
-    public class RepositoryManager : IRepositoryManager
+    public sealed class RepositoryManager : IRepositoryManager
     {
         private readonly RepositoryContext _repositoryContext;
         private readonly Lazy<IProductRepository> _productRepository;
