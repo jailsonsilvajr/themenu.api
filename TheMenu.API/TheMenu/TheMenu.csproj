@@ -21,13 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TheMenu.Application\TheMenu.Application.csproj" />
     <ProjectReference Include="..\TheMenu.Domain\TheMenu.Domain.csproj" />
     <ProjectReference Include="..\TheMenu.Infrastructure\TheMenu.Infrastructure.csproj" />
+    <ProjectReference Include="..\TheMenu.Presentation\TheMenu.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

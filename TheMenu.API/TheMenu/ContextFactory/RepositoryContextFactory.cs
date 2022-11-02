@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using TheMenu.Infrastructure.Context;
 
-namespace TheMenu.API.ContextFactory
+namespace TheMenu.ContextFactory
 {
     public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryContext>
     {

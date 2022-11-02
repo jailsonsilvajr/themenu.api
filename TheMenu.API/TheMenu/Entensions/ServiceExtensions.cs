@@ -5,7 +5,7 @@ using TheMenu.Domain.Interfaces.Services;
 using TheMenu.Infrastructure.Context;
 using TheMenu.Infrastructure.Repositories;
 
-namespace TheMenu.API.Entensions
+namespace TheMenu.Entensions
 {
     public static class ServiceExtensions
     {

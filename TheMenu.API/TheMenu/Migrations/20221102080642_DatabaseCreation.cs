@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TheMenu.API.Migrations
+namespace TheMenu.Migrations
 {
     public partial class DatabaseCreation : Migration
     {

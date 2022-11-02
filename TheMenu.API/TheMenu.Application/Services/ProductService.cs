@@ -1,4 +1,5 @@
-﻿using TheMenu.Domain.Interfaces.Repositories;
+﻿using TheMenu.Domain.Entities;
+using TheMenu.Domain.Interfaces.Repositories;
 using TheMenu.Domain.Interfaces.Services;
 
 namespace TheMenu.Application.Services
@@ -10,6 +11,19 @@ namespace TheMenu.Application.Services
         public ProductService(IRepositoryManager repositoryManager)
         {
             _repositoryManager = repositoryManager;
+        }
+
+        public IEnumerable<Product> GetAllProducts(bool trackChanges)
+        {
+            try
+            {
+                var products = _repositoryManager.ProductRepository.GetAllProducts(trackChanges);
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
