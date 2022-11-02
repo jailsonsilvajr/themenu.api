@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using TheMenu.Domain.Interfaces.Repositories;
 using TheMenu.Infrastructure.Context;
 
@@ -12,29 +13,20 @@ namespace TheMenu.Infrastructure.Repositories
             RepositoryContext = repositoryContext;
         }
 
-        public void Create(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void Create(T entity) => RepositoryContext.Set<T>().Add(entity);
+        public void Delete(T entity) => RepositoryContext.Set<T>().Remove(entity);
+        public void Update(T entity) => RepositoryContext.Set<T>().Update(entity);
 
-        public void Delete(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public IQueryable<T> FindAll(bool trackChanges) => 
+            !trackChanges ?
+            RepositoryContext.Set<T>().AsNoTracking()
+            :
+            RepositoryContext.Set<T>();
 
-        public IQueryable<T> FindAll(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges) => 
+            !trackChanges ?
+            RepositoryContext.Set<T>().Where(expression).AsNoTracking() 
+            : 
+            RepositoryContext.Set<T>().Where(expression);
     }
 }
