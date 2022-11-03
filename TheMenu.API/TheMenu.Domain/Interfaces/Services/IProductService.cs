@@ -1,9 +1,9 @@
-﻿using TheMenu.Domain.Entities;
+﻿using TheMenu.Domain.DTOs;
 
 namespace TheMenu.Domain.Interfaces.Services
 {
     public interface IProductService
     {
-        IEnumerable<Product> GetAllProducts(bool trackChanges);
+        IEnumerable<ProductDTO> GetAllProducts(bool trackChanges);
     }
 }
