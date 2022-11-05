@@ -18,15 +18,8 @@ namespace TheMenu.Application.Services
 
         public IEnumerable<ProductDTO> GetAllProducts(bool trackChanges)
         {
-            try
-            {
-                var products = _repositoryManager.ProductRepository.GetAllProducts(trackChanges);
-                return _mapper.Map<IEnumerable<ProductDTO>>(products);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            var products = _repositoryManager.ProductRepository.GetAllProducts(trackChanges);
+            return _mapper.Map<IEnumerable<ProductDTO>>(products);
         }
     }
 }

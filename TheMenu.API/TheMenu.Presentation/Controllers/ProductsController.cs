@@ -16,15 +16,8 @@ namespace TheMenu.Presentation.Controllers
         [HttpGet]
         public IActionResult GetProducts()
         {
-            try
-            {
-                var products = _serviceManager.ProductService.GetAllProducts(trackChanges: false);
-                return Ok(products);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal server error");
-            }
+            var products = _serviceManager.ProductService.GetAllProducts(trackChanges: false);
+            return Ok(products);
         }
     }
 }
