@@ -10,6 +10,8 @@ namespace TheMenu
         {
             CreateMap<Product, ProductDTO>()
                 .ForMember(c => c.CategoryName, opt => opt.MapFrom(x => x.Category != null ? x.Category.Name : "Uncategorized yet"));
+
+            CreateMap<Category, CategoryDTO>();
         }
     }
 }
