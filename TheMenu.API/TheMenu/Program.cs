@@ -14,6 +14,7 @@ builder.Services.ConfigureServiceManager();
 builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
+app.ConfigureExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
