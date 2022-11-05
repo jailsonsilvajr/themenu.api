@@ -7,17 +7,11 @@ namespace TheMenu.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime? UpdatedAt { get; private set; }
         public Guid? RegisteredById { get; private set; }
         public Guid? LastChangeById { get; private set; }
-
-        public BaseEntity() { }
-        public BaseEntity(Guid id)
-        {
-            Id = id;
-        }
 
         public void SetCreatedAt() => CreatedAt = DateTime.UtcNow;
         public void ChangeUpdatedAt() => UpdatedAt = DateTime.UtcNow;

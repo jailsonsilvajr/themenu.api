@@ -8,7 +8,8 @@ namespace TheMenu
     {
         public MappingProfile()
         {
-            CreateMap<Product, ProductDTO>();
+            CreateMap<Product, ProductDTO>()
+                .ForMember(c => c.CategoryName, opt => opt.MapFrom(x => x.Category != null ? x.Category.Name : "Uncategorized yet"));
         }
     }
 }
