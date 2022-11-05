@@ -15,7 +15,7 @@ namespace TheMenu.ContextFactory
 
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
                 .UseSqlServer(configuration.GetConnectionString("sqlConnection"),
-                b => b.MigrationsAssembly("TheMenu.API"));
+                b => b.MigrationsAssembly("TheMenu"));
 
             return new RepositoryContext(builder.Options);
         }
