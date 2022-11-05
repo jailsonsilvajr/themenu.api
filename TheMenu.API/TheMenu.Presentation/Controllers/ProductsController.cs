@@ -19,5 +19,12 @@ namespace TheMenu.Presentation.Controllers
             var products = _serviceManager.ProductService.GetAllProducts(categoryId, trackChanges: false);
             return Ok(products);
         }
+
+        [HttpGet("{productId:guid}")]
+        public IActionResult GetProductForCategory(Guid categoryId, Guid productId)
+        {
+            var product = _serviceManager.ProductService.GetProduct(categoryId, productId, trackChanges: false);
+            return Ok(product);
+        }
     }
 }

@@ -19,11 +19,26 @@ namespace TheMenu.Application.Services
 
         public IEnumerable<ProductDTO> GetAllProducts(Guid categoryId, bool trackChanges)
         {
-            var category = _repositoryManager.CategoryRepository.GetCategoryById(categoryId, trackChanges);
-            if (category is null) throw new CategoryNotFoundException(categoryId);
+            CheckCategory(categoryId);
 
             var products = _repositoryManager.ProductRepository.GetAllProducts(categoryId, trackChanges);
             return _mapper.Map<IEnumerable<ProductDTO>>(products);
+        }
+
+        public ProductDTO GetProduct(Guid categoryId, Guid productId, bool trackChanges)
+        {
+            CheckCategory(categoryId);
+
+            var product = _repositoryManager.ProductRepository.GetProduct(categoryId, productId, trackChanges);
+            if (product is null) throw new ProductNotFoundException(productId);
+
+            return _mapper.Map<ProductDTO>(product);
+        }
+
+        private void CheckCategory(Guid categoryId)
+        {
+            var category = _repositoryManager.CategoryRepository.GetCategoryById(categoryId, false);
+            if (category is null) throw new CategoryNotFoundException(categoryId);
         }
     }
 }

@@ -12,5 +12,9 @@ namespace TheMenu.Infrastructure.Repositories
             FindByCondition(p => p.CategoryId.Equals(categoryId), trackChanges)
             .OrderBy(p => p.Name)
             .ToList();
+
+        public Product? GetProduct(Guid categoryId, Guid productId, bool trackChanges) =>
+            FindByCondition(p => p.CategoryId.Equals(categoryId) && p.Id.Equals(productId), trackChanges)
+            .SingleOrDefault();
     }
 }
