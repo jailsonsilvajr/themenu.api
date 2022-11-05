@@ -4,6 +4,6 @@ namespace TheMenu.Domain.Interfaces.Services
 {
     public interface IProductService
     {
-        IEnumerable<ProductDTO> GetAllProducts(bool trackChanges);
+        IEnumerable<ProductDTO> GetAllProducts(Guid categoryId, bool trackChanges);
     }
 }
