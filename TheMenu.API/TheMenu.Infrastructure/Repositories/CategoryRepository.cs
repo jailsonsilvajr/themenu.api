@@ -14,5 +14,9 @@ namespace TheMenu.Infrastructure.Repositories
             FindAll(trackChanges)
             .OrderBy(c => c.Name)
             .ToList();
+
+        public Category? GetCategoryById(Guid categoryId, bool trackChanges) =>
+            FindByCondition(c => c.Id.Equals(categoryId), trackChanges)
+            .SingleOrDefault();
     }
 }

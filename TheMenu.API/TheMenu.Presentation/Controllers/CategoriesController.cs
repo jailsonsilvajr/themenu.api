@@ -20,5 +20,12 @@ namespace TheMenu.Presentation.Controllers
             var categories = _serviceManager.CategoryService.GetAllCategories(trackChanges: false);
             return Ok(categories);
         }
+
+        [HttpGet("{categoryId:guid}")]
+        public IActionResult GetCategory(Guid categoryId)
+        {
+            var category = _serviceManager.CategoryService.GetCategoryById(categoryId, trackChanges: false);
+            return Ok(category);
+        }
     }
 }

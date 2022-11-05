@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TheMenu.Domain.DTOs;
+using TheMenu.Domain.Entities.Exceptions;
 using TheMenu.Domain.Interfaces.Repositories;
 using TheMenu.Domain.Interfaces.Services;
 
@@ -20,6 +21,14 @@ namespace TheMenu.Application.Services
         {
             var categories = _repositoryManager.CategoryRepository.GetAllCategories(trackChanges);
             return _mapper.Map<IEnumerable<CategoryDTO>>(categories);
+        }
+
+        public CategoryDTO GetCategoryById(Guid categoryId, bool trackChanges)
+        {
+            var category = _repositoryManager.CategoryRepository.GetCategoryById(categoryId, trackChanges);
+            if (category is null) throw new CategoryNotFoundException(categoryId);
+
+            return _mapper.Map<CategoryDTO>(category);
         }
     }
 }
