@@ -1,4 +1,4 @@
 ﻿namespace TheMenu.Domain.DTOs
 {
-    public record ProductDTO(Guid Id, string Name, string CategoryName);
+    public record ProductDTO(Guid Id, string Name);
 }
